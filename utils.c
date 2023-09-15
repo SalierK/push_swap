@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/15 12:50:23 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/15 18:58:03 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,27 @@ void	*ft_calloc(size_t count, size_t size)
 		i++;
 	}
 	return ((void *)dst);
+}
+
+void edit_b_for_pb(int *stack_a, int *stack_b, int lenb, int lena)
+{
+	int i;
+
+	i = 0;
+	while (stack_b[lenb -1])
+	{
+		stack_b[lenb] = stack_b[lenb -1];
+		if(lenb -1 == 0)
+			break;
+		lenb--;
+	}
+	stack_b[0] = stack_a[0];
+	while (stack_a[i + 1])
+	{
+		stack_a[i] = stack_a[i + 1];
+		if(i == lena -1)
+			break;
+		i++;
+	}
+	stack_a[i] = 0;
 }
