@@ -36,7 +36,7 @@ void sb(int *stack_a, int *stack_b, int argc)
 
 }
 
-void pb(int *stack_a, int *stack_b, int argc)
+int pb(int *stack_a, int *stack_b, int argc)
 {
 	int i;
 	int j;
@@ -51,6 +51,8 @@ void pb(int *stack_a, int *stack_b, int argc)
 	i = 0;
 	while(stack_a[i++])
 		lena++;
+    if(lena == 0)
+        return 1;
 	i = 0;
 	if(lenb == 0)
 	{

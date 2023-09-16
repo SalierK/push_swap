@@ -25,7 +25,7 @@ void sa(int *stack_a, int *stack_b, int argc);
 void sb(int *stack_a, int *stack_b, int argc);
 void ss(int *stack_a, int *stack_b, int argc);
 void pa(int *stack_a, int *stack_b, int argc);
-void pb(int *stack_a, int *stack_b, int argc);
+int pb(int *stack_a, int *stack_b, int argc);
 void edit_b_for_pb(int *stack_a, int *stack_b, int lenb, int lena);
 
 #endif

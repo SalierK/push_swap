@@ -25,28 +25,24 @@ void init_stack_data(char **argv, int argc, int *stack_a, int *stack_b)
 	}
 }
 
-int main(int argcf, char **argt)
+int main(int argc, char **argv)
 {
     int *stack_a;
     int *stack_b;
     int i;
-    
-	int argc = 7;
-	char *argv[9] = {"program","2","12","34","56","37","89"};
-	stack_a = ft_calloc(sizeof(int) , argc -1);
-	stack_b = ft_calloc(sizeof(int) , argc -1);
-	i = -1;
+
+	stack_a = ft_calloc(sizeof(int) , argc);
+	stack_b = ft_calloc(sizeof(int) , argc);
+	i = 0;
 	init_stack_data(argv, argc, stack_a, stack_b);
-	pb(stack_a, stack_b, argc);
-	pb(stack_a, stack_b, argc);
-	pb(stack_a, stack_b, argc);
-	pb(stack_a, stack_b, argc);
-	pb(stack_a, stack_b, argc);
+	pa(stack_a, stack_b, argc);
 
 
-	while(stack_a[++i])
+
+	while(stack_a[i] || stack_b[i])
 	{
-		printf("  \t  \t %d \n" , stack_b[4]);
+		printf("%d  \t  \t %d \n", stack_a[i], stack_b[i]);
+        i++;
 	}
 
 }
