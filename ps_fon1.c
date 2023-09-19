@@ -6,37 +6,47 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:19:17 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/15 18:49:29 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:30:42 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(int *stack_a, int *stack_b, int argc)
+void sa(t_stack *stack)
 {
+	int argc;
+
+	argc = 0;
+	while (stack->stack_a[argc])
+		argc++;
 	if(argc >= 2)
 	{
 		int b;
-   		b = stack_a[0];
-    	stack_a[0] = stack_a[1];
-    	stack_a[1] = b;
+   		b = stack->stack_a[0];
+    	stack->stack_a[0] = stack->stack_a[1];
+    	stack->stack_a[1] = b;
 	}
 }
 
-void sb(int *stack_a, int *stack_b, int argc)
+void sb(t_stack *stack)
 {
+	int argc;
+
+	argc = 0;
+	while (stack->stack_a[argc])
+		argc++;
     if(argc >= 2)
     {
         int b;
-        b = stack_b[0];
-        stack_b[0] = stack_b[1];
-        stack_b[1] = b;
+        b = stack->stack_b[0];
+        stack->stack_b[0] = stack->stack_b[1];
+        stack->stack_b[1] = b;
 		
     }
 
 }
 
-int pb(int *stack_a, int *stack_b, int argc)
+int pb(t_stack *stack)
 {
 	int i;
 	int j;
@@ -46,37 +56,38 @@ int pb(int *stack_a, int *stack_b, int argc)
 	i = 0;
 	lenb = 0;
 	lena = 0;
-	while(stack_b[i++])
+	while(stack->stack_b[i++])
 		lenb++;
 	i = 0;
-	while(stack_a[i++])
+	while(stack->stack_a[i++])
 		lena++;
     if(lena == 0)
         return 1;
 	i = 0;
 	if(lenb == 0)
 	{
-		stack_b[0] = stack_a[0];
-		while (stack_a[i + 1])
+		stack->stack_b[0] = stack->stack_a[0];
+		while (stack->stack_a[i + 1])
 		{
-			stack_a[i] = stack_a[i + 1];
+			stack->stack_a[i] = stack->stack_a[i + 1];
 			if(i == lena -1)
 				break;
 			i++;
 		}
-		stack_a[i] = 0;
+		stack->stack_a[i] = 0;
 	}
 	else
-		edit_b_for_pb(stack_a, stack_b, lenb, lena);
+		edit_b_for_pb(stack, lena, lenb);
+	return (1);
 }
 
-void pa(int *stack_a, int *stack_b, int argc)
+void pa(t_stack *stack)
 {
-	pb(stack_b, stack_a, argc);
+	pb(stack);
 }
 
-void ss(int *stack_a, int *stack_b, int argc)
+void ss(t_stack *stack)
 {
-    sa(stack_a, stack_a, argc);
-    sb(stack_a, stack_a, argc);
+    sa(stack);
+    sb(stack);
 }

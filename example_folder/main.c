@@ -5,27 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 12:42:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/19 15:39:05 by kkilitci         ###   ########.fr       */
+/*   Created: 2023/09/15 11:47:01 by kkilitci          #+#    #+#             */
+/*   Updated: 2023/09/15 19:31:59 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+void init_stack_data(char **argv, int argc, int *stack_a, int *stack_b)
+{
+	int i;
+
+	i = 0;
+	while (i < argc -1)
+	{
+		stack_a[i] = ft_atoi(argv[i + 1]);
+		i++;
+	}
+}
+
 int main(int argc, char **argv)
 {
-    //char *argv[5] = {"program","23","12","5 12"};
-    t_stack *stack;
-    stack = malloc(sizeof(t_stack));
+    int *stack_a;
+    int *stack_b;
     int i;
-    i = -1;
-    if(argc < 1)
-        return (0);
-    init_stack_data(stack, argv);
-    printf("A \t B \n");
-    //pa(stack);
-    while (++i < 9)
-    {
-        printf("%d \t %d \n",stack->stack_a[i],stack->stack_b[i]);
-    }
+
+	stack_a = ft_calloc(sizeof(int) , argc);
+	stack_b = ft_calloc(sizeof(int) , argc);
+	i = 0;
+	init_stack_data(argv, argc, stack_a, stack_b);
+	pa(stack_a, stack_b, argc);
+
+
+
+	while(stack_a[i] || stack_b[i])
+	{
+		printf("%d  \t  \t %d \n", stack_a[i], stack_b[i]);
+        i++;
+	}
+
 }
