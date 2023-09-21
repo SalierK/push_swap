@@ -9,6 +9,7 @@
                 "-fansi-escape-codes",
                 "init.c",
                 "utils1.c",
+                "utils.c", "ps_fon1.c", "radix.c" ,"ps_fon2.c",
                 "-g",
                 "${file}",
                 "-o",

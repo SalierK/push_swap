@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:47:34 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/19 14:30:04 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:31:54 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,36 @@ int have_space(char *arguman)
 
 void init_stack_data(t_stack *stack,char **argv)
 {
-
-    stack->stack_a = malloc(sizeof(int) * argv_size_calculate(argv) + 1);
-    stack->stack_b = malloc(sizeof(int) * argv_size_calculate(argv) + 1);
+    stack->size_stacks = argv_size_calculate(argv);
+    stack->stack_a = ft_calloc(sizeof(int) , stack->size_stacks + 1);
+    stack->stack_b = ft_calloc(sizeof(int) , stack->size_stacks + 1);
     init_space_arg(stack, argv);
+    init_index(stack);
 }
 
-void init_argv(t_stack *stack, char **argv)
+void init_index(t_stack *stack)
 {
-    int i;
-    int j;
-    
-    i = 0;
-    while (argv[++i])
-    {
-        j = 0;
-        while (argv[i][j])
-        {
-            if(argv[i][j] == 32)
-            {
-                init_space_arg(stack, argv);
-            }
-        }
-        j++;
-    }
+    int	i;
+	int j;
+
+	i = 0;
+    while (i < stack->size_stacks)
+	{
+		stack->stack_b[i] = stack->stack_a[i];
+		i++;
+	}
+	bubbleSort(stack, stack->size_stacks);
+	i = -1;
+	while (++i < stack->size_stacks)
+	{
+		j = -1;
+		while (++j < stack->size_stacks)
+		{
+			if(stack->stack_a[i] == stack->stack_b[j])
+				stack->stack_a[i] = j + 1;
+		}
+	}
+	ft_bzero(stack, stack->size_stacks);
 }
 
 void init_space_arg(t_stack *stack, char **argv)
@@ -98,7 +104,6 @@ void init_space_arg(t_stack *stack, char **argv)
             j = -1;
             while (temp[++j])
             {
-                
                 stack->stack_a[stack_index] = ft_atoi(temp[j]);
                 stack_index++;
             }
@@ -107,7 +112,3 @@ void init_space_arg(t_stack *stack, char **argv)
             stack->stack_a[stack_index++] = ft_atoi(argv[i]);
     }
 }
-
-
-
-//////YETER ARTIK AQ NETWORK ANLATMA İŞİ ALIYORUZ HABER VERİCEM SANASAKSO/////////

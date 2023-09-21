@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:42:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/19 15:39:05 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:02:47 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    //char *argv[5] = {"program","23","12","5 12"};
+    //char *argv[8] = {"program","23","13","5 12","45"};
     t_stack *stack;
     stack = malloc(sizeof(t_stack));
     int i;
@@ -22,10 +22,25 @@ int main(int argc, char **argv)
     if(argc < 1)
         return (0);
     init_stack_data(stack, argv);
-    printf("A \t B \n");
-    //pa(stack);
-    while (++i < 9)
+    printf("\tA\tB\n");
+    while (++i < stack->size_stacks)
     {
-        printf("%d \t %d \n",stack->stack_a[i],stack->stack_b[i]);
+        printf("\t%d\t%d\n",stack->stack_a[i],stack->stack_b[i]);
+    }
+    printf("-----%d--------",is_sorted(stack));
+    if (!is_sorted(stack))
+    {
+        if(stack->size_stacks <= 5)
+            short_sort(stack);
+        else
+            radix_sort(stack);
+    }
+
+    i = -1;
+    printf("\n");
+    printf("\tA\tB\n");
+    while (++i < stack->size_stacks)
+    {
+        printf("\t%d\t%d\n",stack->stack_a[i],stack->stack_b[i]);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:19:17 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/19 15:30:42 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:44:21 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void sb(t_stack *stack)
 
 }
 
-int pb(t_stack *stack)
+int pb(int *stack_a, int *stack_b)
 {
 	int i;
 	int j;
@@ -56,34 +56,34 @@ int pb(t_stack *stack)
 	i = 0;
 	lenb = 0;
 	lena = 0;
-	while(stack->stack_b[i++])
+	while(stack_b[i++])
 		lenb++;
 	i = 0;
-	while(stack->stack_a[i++])
+	while(stack_a[i++])
 		lena++;
     if(lena == 0)
         return 1;
 	i = 0;
 	if(lenb == 0)
 	{
-		stack->stack_b[0] = stack->stack_a[0];
-		while (stack->stack_a[i + 1])
+		stack_b[0] = stack_a[0];
+		while (stack_a[i + 1])
 		{
-			stack->stack_a[i] = stack->stack_a[i + 1];
+			stack_a[i] = stack_a[i + 1];
 			if(i == lena -1)
 				break;
 			i++;
 		}
-		stack->stack_a[i] = 0;
+		stack_a[i] = 0;
 	}
 	else
-		edit_b_for_pb(stack, lena, lenb);
+		edit_b_for_pb(stack_a, stack_b, lenb, lena);
 	return (1);
 }
 
 void pa(t_stack *stack)
 {
-	pb(stack);
+	pb(stack->stack_b, stack->stack_a);
 }
 
 void ss(t_stack *stack)

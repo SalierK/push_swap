@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:25:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/19 15:30:56 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:07:52 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@ typedef struct s_stack
 {
     int     *stack_a;
     int     *stack_b;
+    int     size_stacks;
+
     char     **argv;
 } t_stack;
 
@@ -31,15 +33,21 @@ int     ft_wordcount(const char *s, char c);
 int     have_space(char *arguman);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void     init_space_arg(t_stack *stack, char **argv);
-void    init_argv(t_stack *stack, char **argv);
 int	    ft_atoi(char *str);
 void	*ft_calloc(size_t count, size_t size);
-
-void    edit_b_for_pb(t_stack *stack, int lena, int lenb);
+void    init_index(t_stack *stack);
+void    edit_b_for_pb(int *stack_a, int *stack_b, int lenb, int lena);
 void    pa(t_stack *stack);
 void    ss(t_stack *stack);
-int     pb(t_stack *stack);
+int     pb(int *stack_a, int *stack_b);
 void    sb(t_stack *stack);
 void    sa(t_stack *stack);
-
+void    ra(t_stack *stack);
+void    bubbleSort(t_stack *stack, int n);
+void	ft_bzero(t_stack *stack, size_t n);
+void    radix_sort(t_stack *stack);
+int     get_max_bits(t_stack *stack);
+int     isEmpty(t_stack *stack);
+int is_sorted(t_stack *stack);
+void short_sort(t_stack *stack);
 #endif
