@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:16:11 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/21 13:23:52 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/27 13:05:58 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void radix_sort(t_stack *stack)
         }
         i++;
         while (!isEmpty(stack))
-            pa(stack);
+            pa(stack->stack_b, stack->stack_a);
     }
 }
 int isEmpty(t_stack *stack)

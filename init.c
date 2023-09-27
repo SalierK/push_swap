@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:47:34 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/21 11:31:54 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:01:22 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,21 @@ int have_space(char *arguman)
             return (1);
     }
     return (0);
-    
 }
 
-void init_stack_data(t_stack *stack,char **argv)
+int init_stack_data(t_stack *stack, char **argv)
 {
     stack->size_stacks = argv_size_calculate(argv);
     stack->stack_a = ft_calloc(sizeof(int) , stack->size_stacks + 1);
     stack->stack_b = ft_calloc(sizeof(int) , stack->size_stacks + 1);
+    stack->error_state = 0;
     init_space_arg(stack, argv);
+    if(stack->error_state == 1)
+        return (0);
+    if (check_doubles(stack))
+        return (0);
     init_index(stack);
+    return (1);
 }
 
 void init_index(t_stack *stack)
@@ -98,17 +103,19 @@ void init_space_arg(t_stack *stack, char **argv)
     stack_index = 0;
     while (argv[++i])
     {
+        if(ft_strlen(argv[i]) == 0 || argv[i] == NULL)
+            stack->error_state = 1;
         if(have_space(argv[i]))
         {
             temp = ft_split(argv[i],32);
             j = -1;
             while (temp[++j])
             {
-                stack->stack_a[stack_index] = ft_atoi(temp[j]);
+                stack->stack_a[stack_index] = ft_atoi(temp[j], stack);
                 stack_index++;
             }
         }   
         else
-            stack->stack_a[stack_index++] = ft_atoi(argv[i]);
+            stack->stack_a[stack_index++] = ft_atoi(argv[i], stack);
     }
 }

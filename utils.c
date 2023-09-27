@@ -6,13 +6,13 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/21 11:36:07 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:13:14 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, t_stack *stack)
 {
 	int neg;
 	int num;
@@ -26,9 +26,7 @@ int	ft_atoi(char *str)
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			neg *= -1;
-		}
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -36,6 +34,12 @@ int	ft_atoi(char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
+	if(!((num *neg) <= 2147483647 && (num *neg) >= -2147483648))
+	{
+		printf("ERROR BAS");
+		stack->error_state = 1;
+	}
+	printf("%d\n",(num * neg));
 	return (num * neg);
 }
 
@@ -89,4 +93,17 @@ void	ft_bzero(t_stack *stack, size_t n)
 		*p++ = 0;
 		--n;
 	}
+}
+size_t		ft_strlen(const char *s)
+{
+	int		i;
+	int		retval;
+
+	i = -1;
+	retval = 0;
+	while (s[++i] == 32)
+		continue;
+	while (s[i++])
+		retval++;
+	return ((size_t)retval);
 }
