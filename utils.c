@@ -6,41 +6,38 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/27 18:13:14 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:56:21 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *str, t_stack *stack)
+size_t		ft_atoi(char *str, t_stack *stack)
 {
-	int neg;
-	int num;
-	int i;
+	size_t		sign;
+	size_t		result;
+	int		i;
 
+	result = 0;
+	sign = 1;
 	i = 0;
-	neg = 1;
-	num = 0;
-	while (str[i] <= ' ')
+	while (str[i] && (str[i] == '\f' || str[i] == '\t' || str[i] == ' ' ||
+			str[i] == '\n' || str[i] == '\r' || str[i] == '\v'))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
-			neg *= -1;
-		i++;
+		if (str[i++] == '-')
+			sign = -1;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		num = num * 10 + (str[i] - 48);
-		i++;
+		result *= 10;
+		result += str[i++] - '0';
 	}
-	if(!((num *neg) <= 2147483647 && (num *neg) >= -2147483648))
-	{
-		printf("ERROR BAS");
+	result *= sign;
+	if((result < -2147483648 && result > 2147483647))
 		stack->error_state = 1;
-	}
-	printf("%d\n",(num * neg));
-	return (num * neg);
+	return (result);
 }
 
 void	*ft_calloc(size_t count, size_t size)

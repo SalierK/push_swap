@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:16:11 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/27 13:05:58 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:28:03 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,4 @@ int isEmpty(t_stack *stack)
         return (0);
     return (1);
 }
+
