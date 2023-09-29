@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:19:17 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/27 14:00:47 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:35:53 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,15 @@ void sb(t_stack *stack)
 
 }
 
-int pb(int *stack_a, int *stack_b)
+int pb(int *stack_a, int *stack_b,  t_stack *stack)
 {
 	int i;
-	int j;
+
 	int lena;
 	int lenb;
 	
+	stack->size_stack_a -= 1;
+	stack->size_stack_b += 1;
 	write(1, "pb\n", 4);
 	i = 0;
 	lenb = 0;
@@ -68,9 +70,7 @@ int pb(int *stack_a, int *stack_b)
         return 1;
 	i = 0;
 	if(lenb == 0)
-	{
 		swap_for_p(stack_a, stack_b, lena);
-	}
 	else
 		edit_b_for_pb(stack_a, stack_b, lenb, lena);
 	return (1);
@@ -92,14 +92,16 @@ void swap_for_p(int *stack_a, int *stack_b, int lena)
 	stack_a[i] = 0;
 }
 
-int pa(int *stack_a, int *stack_b)
+int pa(int *stack_a, int *stack_b, t_stack *stack)
 {
 	int i;
-	int j;
+
 	int lena;
 	int lenb;
 	
 	write(1, "pa\n", 4);
+	stack->size_stack_a -= 1;
+	stack->size_stack_b += 1;
 	i = 0;
 	lenb = 0;
 	lena = 0;
@@ -112,9 +114,7 @@ int pa(int *stack_a, int *stack_b)
         return 1;
 	i = 0;
 	if(lenb == 0)
-	{
 		swap_for_p(stack_a, stack_b, lena);
-	}
 	else
 		edit_b_for_pb(stack_a, stack_b, lenb, lena);
 	return (1);

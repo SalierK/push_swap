@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:54:39 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/20 15:50:56 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:19:23 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,22 +103,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 void bubbleSort(t_stack *stack, int n)
 {
     int temp;
-    int swapped = 1; // Bayrak başlangıçta 1 olarak ayarlanır, böylece döngüye girilir
+    int swapped = 1;
 
     while (swapped) {
-        swapped = 0; // Her geçişte başlangıçta bayrağı sıfırla
+        swapped = 0;
         int i = 0;
 
         while (i < n - 1) {
-            // Yan yana iki elemanı karşılaştır ve gerekirse yerlerini değiştir
             if (stack->stack_b[i] > stack->stack_b[i + 1]) {
                 temp = stack->stack_b[i];
                 stack->stack_b[i] = stack->stack_b[i + 1];
                 stack->stack_b[i + 1] = temp;
-                swapped = 1; // Değişiklik yapıldığında bayrağı 1 yap
+                swapped = 1; 
             }
             i++;
         }
-        n--; // Her geçişte en büyük eleman zaten yerine oturduğu için bir eleman azalt
+        n--; 
     }
 }

@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:25:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/28 18:33:58 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:53:48 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ typedef struct s_stack
     int     *stack_b;
     int     size_stacks;
 	int		error_state;
-    char     **argv;
+    int     size_stack_a;
+    int     size_stack_b;
 } t_stack;
 
 #ifndef PUSH_SWAP_H
@@ -37,9 +38,9 @@ size_t  ft_atoi(char *str, t_stack *stack);
 void	*ft_calloc(size_t count, size_t size);
 void    init_index(t_stack *stack);
 void    edit_b_for_pb(int *stack_a, int *stack_b, int lenb, int lena);
-int     pa(int *stack_a, int *stack_b);
+int     pa(int *stack_a, int *stack_b, t_stack *stack);
 void    ss(t_stack *stack);
-int     pb(int *stack_a, int *stack_b);
+int     pb(int *stack_a, int *stack_b,  t_stack *stack);
 void    sb(t_stack *stack);
 void    sa(t_stack *stack);
 void    ra(t_stack *stack);
@@ -56,5 +57,6 @@ void	short_five(t_stack *stack);
 void 	swap_for_p(int *stack_a, int *stack_b, int lena);
 int 	check_doubles(t_stack *stack);
 size_t	ft_strlen(const char *s);
+void    ft_double_sign(char **argv, t_stack *stack);
 
 #endif

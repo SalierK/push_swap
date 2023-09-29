@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:47:34 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/28 17:42:19 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:36:45 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int init_stack_data(t_stack *stack, char **argv)
     stack->stack_a = ft_calloc(sizeof(int) , stack->size_stacks + 1);
     stack->stack_b = ft_calloc(sizeof(int) , stack->size_stacks + 1);
     stack->error_state = 0;
+    stack->size_stack_a = stack->size_stacks;
+    stack->size_stack_b = 0;
     init_space_arg(stack, argv);
+    ft_double_sign(argv, stack);
     if(stack->error_state == 1)
         return (0);
     if (check_doubles(stack))
@@ -86,7 +89,10 @@ void init_index(t_stack *stack)
 		while (++j < stack->size_stacks)
 		{
 			if(stack->stack_a[i] == stack->stack_b[j])
+            {
 				stack->stack_a[i] = j + 1;
+                break;
+            }
 		}
 	}
 	ft_bzero(stack, stack->size_stacks);

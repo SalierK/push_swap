@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/28 16:56:21 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:36:29 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t		ft_atoi(char *str, t_stack *stack)
 {
 	size_t		sign;
-	size_t		result;
+	int		result;
 	int		i;
 
 	result = 0;
