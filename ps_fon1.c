@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:19:17 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/29 17:35:53 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:48:15 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void sa(t_stack *stack)
 {
 	int argc;
 
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 	argc = 0;
 	while (stack->stack_a[argc])
 		argc++;
@@ -33,7 +33,7 @@ void sb(t_stack *stack)
 {
 	int argc;
 
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 	argc = 0;
 	while (stack->stack_a[argc])
 		argc++;
@@ -57,7 +57,7 @@ int pb(int *stack_a, int *stack_b,  t_stack *stack)
 	
 	stack->size_stack_a -= 1;
 	stack->size_stack_b += 1;
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 	i = 0;
 	lenb = 0;
 	lena = 0;
@@ -99,7 +99,7 @@ int pa(int *stack_a, int *stack_b, t_stack *stack)
 	int lena;
 	int lenb;
 	
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 	stack->size_stack_a -= 1;
 	stack->size_stack_b += 1;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:17:36 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/29 14:48:59 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:47:49 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ra(t_stack *stack)
 	int first_number;
 	int len_b;
 	
-	write(1, "ra\n", 4);
+	write(1, "ra\n", 3);
 	i = 0;
 	len_b = 0;
 	first_number = stack->stack_a[0];
