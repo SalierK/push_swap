@@ -6,18 +6,18 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:17:36 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/29 17:47:49 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:38:58 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_stack *stack)
+void	ra(t_stack *stack)
 {
-	int i;
-	int first_number;
-	int len_b;
-	
+	int	i;
+	int	first_number;
+	int	len_b;
+
 	write(1, "ra\n", 3);
 	i = 0;
 	len_b = 0;
@@ -29,8 +29,9 @@ void ra(t_stack *stack)
 		stack->stack_a[i] = stack->stack_a[i + 1];
 		i++;
 	}
-	stack->stack_a[i -1] = first_number; 
+	stack->stack_a[i -1] = first_number;
 }
+
 void	short_three(t_stack *stack)
 {
 	int	max;
@@ -59,7 +60,7 @@ void	short_four(t_stack *stack)
 	size = stack->size_stacks;
 	while (i < size)
 	{
-		if (stack->stack_a[0] == 1|| stack->stack_a[0] == 2)
+		if (stack->stack_a[0] == 1 || stack->stack_a[0] == 2)
 			pb(stack->stack_a, stack->stack_b, stack);
 		else
 			ra(stack);

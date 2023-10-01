@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:54:39 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/09/29 16:19:23 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:48:50 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*str;
 
-	str = (char*)malloc(sizeof(*s) * (len + 1));
+	str = (char *) malloc(sizeof(*s) * (len + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -100,24 +100,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[j] = 0;
 	return (str);
 }
-void bubbleSort(t_stack *stack, int n)
+
+void	bubble_sort(t_stack *stack, int n)
 {
-    int temp;
-    int swapped = 1;
+	int	temp;
+	int	swapped;
+	int	i;
 
-    while (swapped) {
-        swapped = 0;
-        int i = 0;
-
-        while (i < n - 1) {
-            if (stack->stack_b[i] > stack->stack_b[i + 1]) {
-                temp = stack->stack_b[i];
-                stack->stack_b[i] = stack->stack_b[i + 1];
-                stack->stack_b[i + 1] = temp;
-                swapped = 1; 
-            }
-            i++;
-        }
-        n--; 
-    }
+	swapped = 1;
+	while (swapped)
+	{
+		swapped = 0;
+		i = 0;
+		while (i < n - 1)
+		{
+			if (stack->stack_b[i] > stack->stack_b[i + 1])
+			{
+				temp = stack->stack_b[i];
+				stack->stack_b[i] = stack->stack_b[i + 1];
+				stack->stack_b[i + 1] = temp;
+				swapped = 1;
+			}
+			i++;
+		}
+		n--;
+	}
 }
