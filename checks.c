@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:50:26 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/01 16:27:06 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/03 00:18:45 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,26 @@ void	ft_free_temp(char **temp)
 	while (temp[++i])
 		free(temp[i]);
 	free(temp);
+}
+
+void	ft_chracter_check(char **argv, t_stack *stack)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (argv[++i])
+	{
+		j = -1;
+		while (argv[i][++j])
+		{
+			if (argv[i][j] >= '0' && argv[i][j] <= '9')
+				continue;
+			else if(argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j] == 32)
+				continue;
+			else
+				stack->error_state = 1;
+
+		}
+	}
 }

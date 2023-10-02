@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:25:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/01 16:55:03 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:44:31 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int		check_doubles(t_stack *stack);
 size_t	ft_strlen(const char *s);
 void	ft_double_sign(char **argv, t_stack *stack);
 void	ft_free_temp(char **temp);
+void	ft_chracter_check(char **argv, t_stack *stack);
 
 #endif

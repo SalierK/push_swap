@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:47:34 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/01 16:46:28 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/02 23:43:37 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	init_stack_data(t_stack *stack, char **argv)
 	stack->size_stack_b = 0;
 	init_space_arg(stack, argv);
 	ft_double_sign(argv, stack);
+	ft_chracter_check(argv, stack);
 	if (stack->error_state == 1)
 		return (0);
 	if (check_doubles(stack))
