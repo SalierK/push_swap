@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/01 16:43:13 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:40:25 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	*ft_calloc(size_t count, size_t size)
 	unsigned int	i;
 
 	total = count * size;
-	if (!(dst == malloc(total)))
+	dst = malloc(total);
+	if (!dst)
 		return (NULL);
 	i = 0;
 	while (total--)
