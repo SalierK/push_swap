@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:50:26 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/03 00:18:45 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/05 00:01:28 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	check_doubles(t_stack *stack)
 	int	j;
 
 	i = -1;
-	while (stack->stack_a[++i])
+	while (++i < stack->size_stacks)
 	{
 		j = i + 1;
-		while (stack->stack_a[j])
+		while (j < stack->size_stacks)
 		{
 			if (stack->stack_a[i] == stack->stack_a[j])
 				return (1);
@@ -43,8 +43,8 @@ void	ft_free_temp(char **temp)
 
 void	ft_chracter_check(char **argv, t_stack *stack)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (argv[++i])
@@ -53,12 +53,17 @@ void	ft_chracter_check(char **argv, t_stack *stack)
 		while (argv[i][++j])
 		{
 			if (argv[i][j] >= '0' && argv[i][j] <= '9')
-				continue;
-			else if(argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j] == 32)
-				continue;
+				continue ;
+			else if (argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j] == 32)
+			{
+				if ((argv[i][j + 1] >= '0' && argv[i][j + 1] <= '9') ||
+					argv[i][j] == 32)
+					continue ;
+				else
+					stack->error_state = 1;
+			}
 			else
 				stack->error_state = 1;
-
 		}
 	}
 }
