@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:42:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/05 03:35:41 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/05 05:05:27 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int argc, char **argv)
 	stack = malloc(sizeof(t_stack));
 	if (argc < 1)
 	{
-		write(2, "ERROR\n", 7);
+		write(2, "Error\n", 7);
 		return (-1);
 	}
 	if (!init_stack_data(stack, argv))
 	{
-		write(2, "ERROR\n", 7);
+		write(2, "Error\n", 7);
 		return (-1);
 	}
 	if (!is_sorted(stack->stack_a, stack->size_stacks))
@@ -36,8 +36,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		write(2, "ERROR\n", 7);
-		return (-1);
+		return (0);
 	}
 }
 
