@@ -30,3 +30,5 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY : fclean re clean all

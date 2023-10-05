@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:50:26 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/05 00:01:28 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/05 03:23:08 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,9 @@ void	ft_chracter_check(char **argv, t_stack *stack)
 				continue ;
 			else if (argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j] == 32)
 			{
-				if ((argv[i][j + 1] >= '0' && argv[i][j + 1] <= '9') ||
-					argv[i][j] == 32)
+				if (((argv[i][j + 1] >= '0' && argv[i][j + 1] <= '9') &&
+				!(argv[i][j - 1] >= '0' && argv[i][j - 1] <= '9')) ||
+				(argv[i][j] == 32))
 					continue ;
 				else
 					stack->error_state = 1;
