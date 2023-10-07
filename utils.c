@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:57:16 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/02 23:41:15 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/06 23:01:54 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_atoi(char *str, t_stack *stack)
 {
-	size_t	sign;
-	int		result;
-	int		i;
+	int				sign;
+	long long		result;
+	int				i;
 
 	result = 0;
 	sign = 1;
@@ -35,7 +35,7 @@ size_t	ft_atoi(char *str, t_stack *stack)
 		result += str[i++] - '0';
 	}
 	result *= sign;
-	if ((result < -2147483648 && result > 2147483647))
+	if (!(result >= -2147483648 && result <= 2147483647))
 		stack->error_state = 1;
 	return (result);
 }

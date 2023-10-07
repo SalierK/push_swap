@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 13:19:17 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/01 16:37:14 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/07 00:21:24 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	pa(int *stack_a, int *stack_b, t_stack *stack)
 	int	lenb;
 
 	write(1, "pa\n", 3);
-	stack->size_stack_a -= 1;
-	stack->size_stack_b += 1;
+	stack->size_stack_a += 1;
+	stack->size_stack_b -= 1;
 	i = 0;
 	lenb = 0;
 	lena = 0;

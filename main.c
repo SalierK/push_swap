@@ -6,7 +6,7 @@
 /*   By: kkilitci <kkilitci@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 12:42:35 by kkilitci          #+#    #+#             */
-/*   Updated: 2023/10/05 05:05:27 by kkilitci         ###   ########.fr       */
+/*   Updated: 2023/10/06 22:55:35 by kkilitci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ int	main(int argc, char **argv)
 			short_sort(stack);
 		else
 			radix_sort(stack);
-	}
-	else
-	{
-		return (0);
 	}
 }
 
