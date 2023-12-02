@@ -2,7 +2,7 @@ NAME = push_swap
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c \
+SRCS = main.c  \
 	   ps_fon1.c \
 	   ps_fon2.c \
 	   utils1.c \
